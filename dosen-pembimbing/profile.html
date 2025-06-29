@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Dosen - SIMAGANG</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://uin-alauddin.ac.id/themes//images/favicon.png"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="h-full">
+    <div x-data="{ open: false }" class="flex h-screen bg-gray-100">
+      <!-- Sidebar -->
+      <aside
+        class="fixed inset-y-0 left-0 z-30 w-64 px-4 py-7 overflow-y-auto bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
+        :class="{'translate-x-0': open, '-translate-x-full': !open}"
+      >
+        <div class="flex items-center justify-between px-2">
+          <a href="#" class="flex items-center space-x-2">
+            <img
+              src="../assets/images/logo-uin.png"
+              alt="Logo UIN"
+              class="h-10 w-auto"
+            />
+            <span class="text-xl font-bold text-gray-800">SIMAGANG</span>
+          </a>
+          <button class="lg:hidden" @click="open = false">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="mt-10">
+          <a
+            href="./dashboard.html"
+            class="flex items-center px-4 py-3 text-white bg-green-700 rounded-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Dashboard</span>
+          </a>
+
+          <a
+            href="./bimbingan.html"
+            class="flex items-center mt-5 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Mahasiswa Bimbingan</span>
+          </a>
+
+          <a
+            href="../index.html"
+            class="flex items-center mt-5 px-4 py-3 text-red-600 hover:bg-red-100 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <header
+          class="flex justify-between items-center py-4 px-6 bg-white border-b-2 border-gray-200"
+        >
+          <div class="flex items-center">
+            <button
+              @click="open = !open"
+              class="text-gray-500 focus:outline-none lg:hidden"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6H20M4 12H20M4 18H11"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <h1 class="text-2xl font-semibold text-gray-800 ml-4">
+              Dashboard Dosen Pembimbing
+            </h1>
+          </div>
+
+          <div x-data="{ dropdownOpen: false }" class="relative">
+            <button
+              @click="dropdownOpen = !dropdownOpen"
+              class="flex items-center space-x-3 focus:outline-none"
+            >
+              <span class="text-right hidden sm:inline">
+                <p class="font-semibold text-gray-700 text-sm">
+                  Rahman, M.Kom.
+                </p>
+                <p class="text-xs text-gray-500">Dosen Pembimbing</p>
+              </span>
+              <img
+                src="https://placehold.co/40x40/E2E8F0/4A5568?text=HD"
+                alt="User Avatar"
+                class="h-10 w-10 rounded-full object-cover"
+              />
+            </button>
+            <div
+              x-show="dropdownOpen"
+              @click.away="dropdownOpen = false"
+              x-transition
+              class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20"
+            >
+              <a
+                href="./profile.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Profil</a
+              >
+              <a
+                href="../index.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+          <div class="container mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div class="lg:col-span-1">
+                <div class="bg-white p-6 rounded-xl shadow-sm text-center">
+                  <img
+                    class="rounded-full w-32 h-32 object-cover mx-auto mb-4 border-4 border-white shadow-md"
+                    src="https://placehold.co/128x128/E2E8F0/4A5568?text=HD"
+                    alt="Foto Profil Dosen"
+                  />
+
+                  <h2 class="text-xl font-bold text-gray-800">
+                    Rahman, M.Kom.
+                  </h2>
+                  <p class="text-sm text-gray-500 mt-1">NIDN: 1234567890</p>
+                  <p class="text-sm text-gray-500">Sains dan Teknologi</p>
+
+                  <div class="mt-4 border-t pt-4">
+                    <h4 class="text-sm font-semibold text-gray-600 mb-2">
+                      Bidang Keahlian
+                    </h4>
+                    <div class="flex flex-wrap justify-center gap-2">
+                      <span
+                        class="px-2 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full"
+                        >Data Mining</span
+                      >
+                      <span
+                        class="px-2 py-1 text-xs font-medium text-blue-800 bg-blue-100 rounded-full"
+                        >Machine Learning</span
+                      >
+                      <span
+                        class="px-2 py-1 text-xs font-medium text-indigo-800 bg-indigo-100 rounded-full"
+                        >AI</span
+                      >
+                    </div>
+                  </div>
+
+                  <div class="mt-6 space-y-3">
+                    <a
+                      href="#"
+                      class="w-full inline-flex items-center justify-center gap-2 text-center py-2.5 px-4 rounded-lg bg-green-700 text-white font-semibold hover:bg-green-800 transition"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"
+                        />
+                      </svg>
+                      Edit Profil
+                    </a>
+                    <a
+                      href="#"
+                      class="w-full inline-flex items-center justify-center gap-2 text-center py-2.5 px-4 rounded-lg bg-white border border-gray-300 text-gray-700 font-semibold hover:bg-gray-100 transition"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                        />
+                      </svg>
+                      Ubah Password
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="lg:col-span-2">
+                <div class="bg-white p-8 rounded-xl shadow-sm space-y-8">
+                  <div>
+                    <h3
+                      class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                        />
+                      </svg>
+                      Informasi Akademik
+                    </h3>
+                    <dl
+                      class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm"
+                    >
+                      <div class="sm:col-span-1">
+                        <dt class="font-medium text-gray-500">Email</dt>
+                        <dd class="mt-1 text-gray-900">
+                          rahman@uin-alauddin.ac.id
+                        </dd>
+                      </div>
+                      <div class="sm:col-span-1">
+                        <dt class="font-medium text-gray-500">Nomor Telepon</dt>
+                        <dd class="mt-1 text-gray-900">081298765432</dd>
+                      </div>
+                      <div class="sm:col-span-1">
+                        <dt class="font-medium text-gray-500">Fakultas</dt>
+                        <dd class="mt-1 text-gray-900">Sains dan Teknologi</dd>
+                      </div>
+                      <div class="sm:col-span-1">
+                        <dt class="font-medium text-gray-500">Jurusan</dt>
+                        <dd class="mt-1 text-gray-900">Sistem Informasi</dd>
+                      </div>
+                      <div class="sm:col-span-2">
+                        <dt class="font-medium text-gray-500">Profil SINTA</dt>
+                        <dd class="mt-1 text-green-600">
+                          <a href="#" class="hover:underline"
+                            >https://sinta.kemdikbud.go.id/authors/profile/12345</a
+                          >
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+
+                  <div class="border-t border-gray-100 pt-8">
+                    <h3
+                      class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-6 w-6 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                        />
+                      </svg>
+                      Informasi Bimbingan Magang
+                    </h3>
+                    <dl
+                      class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm"
+                    >
+                      <div class="sm:col-span-2">
+                        <dt class="font-medium text-gray-500">
+                          Kapasitas Bimbingan
+                        </dt>
+                        <dd class="mt-2">
+                          <div class="flex items-center justify-between">
+                            <span class="text-gray-900"
+                              >8 dari 10 Mahasiswa</span
+                            >
+                            <span class="text-gray-900 font-semibold">80%</span>
+                          </div>
+                          <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div
+                              class="bg-green-600 h-2 rounded-full"
+                              style="width: 80%"
+                            ></div>
+                          </div>
+                        </dd>
+                      </div>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

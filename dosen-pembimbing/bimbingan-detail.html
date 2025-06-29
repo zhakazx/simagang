@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-gray-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail Bimbingan - SIMAGANG</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://uin-alauddin.ac.id/themes//images/favicon.png"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="h-full">
+    <div x-data="{ open: false }" class="flex h-screen bg-gray-100">
+      <!-- Sidebar -->
+      <aside
+        class="fixed inset-y-0 left-0 z-30 w-64 px-4 py-7 overflow-y-auto bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
+        :class="{'translate-x-0': open, '-translate-x-full': !open}"
+      >
+        <div class="flex items-center justify-between px-2">
+          <a href="./dashboard.html" class="flex items-center space-x-2">
+            <img
+              src="../assets/images/logo-uin.png"
+              alt="Logo UIN"
+              class="h-10 w-auto"
+            />
+            <span class="text-xl font-bold text-gray-800">SIMAGANG</span>
+          </a>
+          <button class="lg:hidden" @click="open = false">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="mt-10">
+          <a
+            href="./dashboard.html"
+            class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Dashboard</span>
+          </a>
+          <a
+            href="./bimbingan.html"
+            class="flex items-center mt-5 px-4 py-3 text-white bg-green-700 rounded-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Mahasiswa Bimbingan</span>
+          </a>
+          <a
+            href="../index.html"
+            class="flex items-center mt-5 px-4 py-3 text-red-600 hover:bg-red-100 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <header
+          class="flex justify-between items-center py-4 px-6 bg-white border-b-2 border-gray-200"
+        >
+          <div class="flex items-center">
+            <button
+              @click="open = !open"
+              class="text-gray-500 focus:outline-none lg:hidden"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6H20M4 12H20M4 18H11"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <h1 class="text-2xl font-semibold text-gray-800 ml-4">
+              Detail Bimbingan
+            </h1>
+          </div>
+          <div x-data="{ dropdownOpen: false }" class="relative">
+            <button
+              @click="dropdownOpen = !dropdownOpen"
+              class="flex items-center space-x-3 focus:outline-none"
+            >
+              <span class="text-right hidden sm:inline">
+                <p class="font-semibold text-gray-700 text-sm">
+                  Rahman, M.Kom.
+                </p>
+                <p class="text-xs text-gray-500">Dosen Pembimbing</p>
+              </span>
+              <img
+                src="https://placehold.co/40x40/E2E8F0/4A5568?text=HD"
+                alt="User Avatar"
+                class="h-10 w-10 rounded-full object-cover"
+              />
+            </button>
+            <div
+              x-show="dropdownOpen"
+              @click.away="dropdownOpen = false"
+              x-transition
+              class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20"
+            >
+              <a
+                href="./profile.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Profil</a
+              >
+              <a
+                href="../index.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
+          <div class="container mx-auto">
+            <a
+              href="./bimbingan.html"
+              class="inline-flex items-center text-sm text-green-700 hover:underline mb-6"
+            >
+              <svg
+                class="w-4 h-4 mr-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                ></path>
+              </svg>
+              Kembali ke Daftar Bimbingan
+            </a>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <!-- Kolom Kiri: Profil Mahasiswa & Penilaian Laporan -->
+              <div class="lg:col-span-1 space-y-8">
+                <!-- Profil Mahasiswa -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                  <div class="flex flex-col items-center text-center">
+                    <img
+                      src="https://placehold.co/100x100/E2E8F0/4A5568?text=AP"
+                      alt="Avatar Mahasiswa"
+                      class="h-24 w-24 rounded-full object-cover mb-4"
+                    />
+                    <h3 class="text-xl font-bold text-gray-900">
+                      Andi Pratama
+                    </h3>
+                    <p class="text-gray-600">60200121001</p>
+                    <p class="text-sm text-gray-500 mt-2">Sistem Informasi</p>
+                  </div>
+                  <div class="border-t mt-4 pt-4 text-sm">
+                    <p>
+                      <strong class="text-gray-600">Tempat Magang:</strong
+                      ><br />Dinas Kominfo Makassar
+                    </p>
+                    <p class="mt-2">
+                      <strong class="text-gray-600">Periode:</strong><br />25
+                      Juni - 25 Oktober 2025
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Penilaian Laporan Akhir -->
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                  <h3 class="text-lg font-semibold text-gray-800 mb-4">
+                    Penilaian Laporan Akhir
+                  </h3>
+                  <a
+                    href="#"
+                    class="inline-flex items-center w-full justify-center text-sm mb-4 px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
+                  >
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                      ></path>
+                    </svg>
+                    Download Laporan
+                  </a>
+                  <form>
+                    <div class="mb-3">
+                      <label
+                        for="nilai_laporan"
+                        class="block text-sm font-medium text-gray-700"
+                        >Nilai Laporan (1-100)</label
+                      >
+                      <input
+                        type="number"
+                        id="nilai_laporan"
+                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        for="nilai_presentasi"
+                        class="block text-sm font-medium text-gray-700"
+                        >Nilai Presentasi (1-100)</label
+                      >
+                      <input
+                        type="number"
+                        id="nilai_presentasi"
+                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm"
+                      />
+                    </div>
+                    <div class="mb-3">
+                      <label
+                        for="komentar_dosen"
+                        class="block text-sm font-medium text-gray-700"
+                        >Komentar/Catatan</label
+                      >
+                      <textarea
+                        id="komentar_dosen"
+                        rows="4"
+                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm"
+                      ></textarea>
+                    </div>
+                    <button
+                      class="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 transition"
+                    >
+                      Simpan Nilai
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Kolom Kanan: Tabel Logbook -->
+              <div class="lg:col-span-2 bg-white rounded-lg shadow-md">
+                <div class="p-6 border-b">
+                  <h3 class="text-xl font-semibold text-gray-800">
+                    Validasi Logbook
+                  </h3>
+                </div>
+                <div class="overflow-x-auto">
+                  <table class="w-full">
+                    <thead class="bg-gray-50">
+                      <tr>
+                        <th
+                          class="p-4 text-left text-sm font-semibold text-gray-600"
+                        >
+                          Minggu
+                        </th>
+                        <th
+                          class="p-4 text-left text-sm font-semibold text-gray-600"
+                        >
+                          Tgl Submit
+                        </th>
+                        <th
+                          class="p-4 text-center text-sm font-semibold text-gray-600"
+                        >
+                          Status
+                        </th>
+                        <th
+                          class="p-4 text-center text-sm font-semibold text-gray-600"
+                        >
+                          Aksi
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                      <tr>
+                        <td class="p-4 font-medium text-gray-800">Minggu 1</td>
+                        <td class="p-4 text-sm text-gray-500">02 Juli 2025</td>
+                        <td class="p-4 text-center">
+                          <span
+                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-200 rounded-full"
+                            >Divalidasi</span
+                          >
+                        </td>
+                        <td class="p-4 text-center">
+                          <a
+                            href="./validasi-logbook.html"
+                            class="text-blue-600 hover:underline text-sm"
+                            >Lihat</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 font-medium text-gray-800">Minggu 2</td>
+                        <td class="p-4 text-sm text-gray-500">09 Juli 2025</td>
+                        <td class="p-4 text-center">
+                          <span
+                            class="px-3 py-1 text-xs font-medium text-red-800 bg-red-200 rounded-full"
+                            >Revisi</span
+                          >
+                        </td>
+                        <td class="p-4 text-center">
+                          <a
+                            href="./validasi-logbook.html"
+                            class="text-blue-600 hover:underline text-sm"
+                            >Periksa</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 font-medium text-gray-800">Minggu 3</td>
+                        <td class="p-4 text-sm text-gray-500">16 Juli 2025</td>
+                        <td class="p-4 text-center">
+                          <span
+                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-200 rounded-full"
+                            >Divalidasi</span
+                          >
+                        </td>
+                        <td class="p-4 text-center">
+                          <a
+                            href="./validasi-logbook.html"
+                            class="text-blue-600 hover:underline text-sm"
+                            >Lihat</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 font-medium text-gray-800">Minggu 4</td>
+                        <td class="p-4 text-sm text-gray-500">23 Juli 2025</td>
+                        <td class="p-4 text-center">
+                          <span
+                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-200 rounded-full"
+                            >Divalidasi</span
+                          >
+                        </td>
+                        <td class="p-4 text-center">
+                          <a
+                            href="./validasi-logbook.html"
+                            class="text-blue-600 hover:underline text-sm"
+                            >Lihat</a
+                          >
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="p-4 font-medium text-gray-800">Minggu 5</td>
+                        <td class="p-4 text-sm text-gray-500">30 Juli 2025</td>
+                        <td class="p-4 text-center">
+                          <span
+                            class="px-3 py-1 text-xs font-medium text-blue-800 bg-blue-200 rounded-full"
+                            >Terkirim</span
+                          >
+                        </td>
+                        <td class="p-4 text-center">
+                          <a
+                            href="./validasi-logbook.html"
+                            class="text-blue-600 hover:underline text-sm font-bold"
+                            >Validasi</a
+                          >
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
