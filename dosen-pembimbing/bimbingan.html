@@ -230,64 +230,86 @@
             </div>
 
             <div class="bg-white rounded-xl shadow-sm overflow-x-auto">
-              <div class="min-w-[800px]">
-                <div
-                  class="grid grid-cols-12 gap-4 px-6 py-3 bg-gray-50 text-xs font-semibold text-gray-500 uppercase tracking-wider"
-                >
-                  <div class="col-span-3">Mahasiswa</div>
-                  <div class="col-span-2">Tempat Magang</div>
-                  <div class="col-span-2">Periode</div>
-                  <div class="col-span-2 text-center">Progres Logbook</div>
-                  <div class="col-span-2 text-center">Laporan Akhir</div>
-                  <div class="col-span-1 text-center">Aksi</div>
-                </div>
-
-                <div class="divide-y divide-gray-100">
+              <table class="w-full min-w-[900px]">
+                <thead class="bg-gray-50">
+                  <tr>
+                    <th
+                      class="p-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    >
+                      Mahasiswa
+                    </th>
+                    <th
+                      class="p-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    >
+                      Tempat Magang
+                    </th>
+                    <th
+                      class="p-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    >
+                      Periode
+                    </th>
+                    <th
+                      class="p-4 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    >
+                      Progres Logbook
+                    </th>
+                    <th
+                      class="p-4 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    >
+                      Laporan Akhir
+                    </th>
+                    <th
+                      class="p-4 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                    >
+                      Aksi
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100">
                   <!-- Mahasiswa 1 -->
-                  <div
-                    class="grid grid-cols-12 gap-4 items-center px-6 py-4 hover:bg-gray-50"
-                  >
-                    <div class="col-span-3 flex items-center space-x-4">
-                      <div
-                        class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold"
-                      >
-                        AP
+                  <tr class="hover:bg-gray-50">
+                    <td class="p-4 align-middle">
+                      <div class="flex items-center space-x-4">
+                        <div
+                          class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold"
+                        >
+                          AP
+                        </div>
+                        <div>
+                          <p class="font-medium text-gray-800">Andi Pratama</p>
+                          <p class="text-sm text-gray-500">60200121001</p>
+                        </div>
                       </div>
-                      <div>
-                        <p class="font-medium text-gray-800">Andi Pratama</p>
-                        <p class="text-sm text-gray-500">60200121001</p>
-                      </div>
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-700">
+                    </td>
+                    <td class="p-4 text-sm text-gray-700 align-middle">
                       Dinas Kominfo Makassar
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-500">
+                    </td>
+                    <td class="p-4 text-sm text-gray-500 align-middle">
                       Juni - Okt 2025
-                    </div>
-                    <div class="col-span-2 text-center">
+                    </td>
+                    <td class="p-4 align-middle">
                       <div class="w-full bg-gray-200 rounded-full h-2">
                         <div
                           class="bg-green-500 h-2 rounded-full"
                           style="width: 31.25%"
                         ></div>
                       </div>
-                      <p class="text-xs text-gray-500 mt-1">5/16</p>
-                    </div>
-                    <div class="col-span-2 text-center">
+                      <p class="text-xs text-gray-500 mt-1 text-center">5/16</p>
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <span
                         class="px-2.5 py-1 text-xs font-semibold text-gray-700 bg-gray-100 rounded-full"
                         >Belum Unggah</span
                       >
-                    </div>
-                    <div class="col-span-1 text-center">
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <a
                         href="./bimbingan-detail.html"
-                        class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 hover:text-gray-800 rounded-md transition-colors"
-                        title="Lihat Detail"
+                        class="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4"
+                          class="h-4 w-4 mr-1.5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -298,54 +320,57 @@
                             clip-rule="evenodd"
                           />
                         </svg>
+                        Detail
                       </a>
-                    </div>
-                  </div>
+                    </td>
+                  </tr>
+
                   <!-- Mahasiswa 2 -->
-                  <div
-                    class="grid grid-cols-12 gap-4 items-center px-6 py-4 hover:bg-gray-50"
-                  >
-                    <div class="col-span-3 flex items-center space-x-4">
-                      <div
-                        class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold"
-                      >
-                        CK
+                  <tr class="hover:bg-gray-50">
+                    <td class="p-4 align-middle">
+                      <div class="flex items-center space-x-4">
+                        <div
+                          class="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold"
+                        >
+                          CK
+                        </div>
+                        <div>
+                          <p class="font-medium text-gray-800">Citra Kirana</p>
+                          <p class="text-sm text-gray-500">60200121015</p>
+                        </div>
                       </div>
-                      <div>
-                        <p class="font-medium text-gray-800">Citra Kirana</p>
-                        <p class="text-sm text-gray-500">60200121015</p>
-                      </div>
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-700">
+                    </td>
+                    <td class="p-4 text-sm text-gray-700 align-middle">
                       Telkom Indonesia
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-500">
+                    </td>
+                    <td class="p-4 text-sm text-gray-500 align-middle">
                       Mei - Sep 2025
-                    </div>
-                    <div class="col-span-2 text-center">
+                    </td>
+                    <td class="p-4 align-middle">
                       <div class="w-full bg-gray-200 rounded-full h-2">
                         <div
                           class="bg-green-500 h-2 rounded-full"
                           style="width: 100%"
                         ></div>
                       </div>
-                      <p class="text-xs text-gray-500 mt-1">16/16</p>
-                    </div>
-                    <div class="col-span-2 text-center">
+                      <p class="text-xs text-gray-500 mt-1 text-center">
+                        16/16
+                      </p>
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <span
                         class="px-2.5 py-1 text-xs font-semibold bg-blue-100 text-blue-600 rounded-full"
                         >Menunggu Nilai</span
                       >
-                    </div>
-                    <div class="col-span-1 text-center">
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <a
                         href="./bimbingan-detail.html"
-                        class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 hover:text-gray-800 rounded-md transition-colors"
-                        title="Lihat Detail"
+                        class="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4"
+                          class="h-4 w-4 mr-1.5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -356,54 +381,55 @@
                             clip-rule="evenodd"
                           />
                         </svg>
+                        Detail
                       </a>
-                    </div>
-                  </div>
+                    </td>
+                  </tr>
+
                   <!-- Mahasiswa 3 -->
-                  <div
-                    class="grid grid-cols-12 gap-4 items-center px-6 py-4 hover:bg-gray-50"
-                  >
-                    <div class="col-span-3 flex items-center space-x-4">
-                      <div
-                        class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold"
-                      >
-                        BS
+                  <tr class="hover:bg-gray-50">
+                    <td class="p-4 align-middle">
+                      <div class="flex items-center space-x-4">
+                        <div
+                          class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold"
+                        >
+                          BS
+                        </div>
+                        <div>
+                          <p class="font-medium text-gray-800">Budi Santoso</p>
+                          <p class="text-sm text-gray-500">60200121023</p>
+                        </div>
                       </div>
-                      <div>
-                        <p class="font-medium text-gray-800">Budi Santoso</p>
-                        <p class="text-sm text-gray-500">60200121023</p>
-                      </div>
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-700">
+                    </td>
+                    <td class="p-4 text-sm text-gray-700 align-middle">
                       Bank Mandiri
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-500">
+                    </td>
+                    <td class="p-4 text-sm text-gray-500 align-middle">
                       Juli - Nov 2025
-                    </div>
-                    <div class="col-span-2 text-center">
+                    </td>
+                    <td class="p-4 align-middle">
                       <div class="w-full bg-gray-200 rounded-full h-2">
                         <div
                           class="bg-green-500 h-2 rounded-full"
                           style="width: 18.75%"
                         ></div>
                       </div>
-                      <p class="text-xs text-gray-500 mt-1">3/16</p>
-                    </div>
-                    <div class="col-span-2 text-center">
+                      <p class="text-xs text-gray-500 mt-1 text-center">3/16</p>
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <span
                         class="px-2.5 py-1 text-xs font-semibold text-gray-700 bg-gray-100 rounded-full"
                         >Belum Unggah</span
                       >
-                    </div>
-                    <div class="col-span-1 text-center">
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <a
                         href="./bimbingan-detail.html"
-                        class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 hover:text-gray-800 rounded-md transition-colors"
-                        title="Lihat Detail"
+                        class="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
-                          class="h-4 w-4"
+                          class="h-4 w-4 mr-1.5"
                           viewBox="0 0 20 20"
                           fill="currentColor"
                         >
@@ -414,56 +440,58 @@
                             clip-rule="evenodd"
                           />
                         </svg>
+                        Detail
                       </a>
-                    </div>
-                  </div>
+                    </td>
+                  </tr>
+
                   <!-- Mahasiswa 4 (Sudah Dinilai) -->
-                  <div
-                    class="grid grid-cols-12 gap-4 items-center px-6 py-4 hover:bg-gray-50"
-                  >
-                    <div class="col-span-3 flex items-center space-x-4">
-                      <div
-                        class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold"
-                      >
-                        DL
+                  <tr class="hover:bg-gray-50">
+                    <td class="p-4 align-middle">
+                      <div class="flex items-center space-x-4">
+                        <div
+                          class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold"
+                        >
+                          DL
+                        </div>
+                        <div>
+                          <p class="font-medium text-gray-800">Dewi Lestari</p>
+                          <p class="text-sm text-gray-500">60200120005</p>
+                        </div>
                       </div>
-                      <div>
-                        <p class="font-medium text-gray-800">Dewi Lestari</p>
-                        <p class="text-sm text-gray-500">60200120005</p>
-                      </div>
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-700">
+                    </td>
+                    <td class="p-4 text-sm text-gray-700 align-middle">
                       Unilever Tbk.
-                    </div>
-                    <div class="col-span-2 text-sm text-gray-500">
+                    </td>
+                    <td class="p-4 text-sm text-gray-500 align-middle">
                       Feb - Jun 2025
-                    </div>
-                    <div class="col-span-2 text-center">
+                    </td>
+                    <td class="p-4 align-middle">
                       <div class="w-full bg-gray-200 rounded-full h-2">
                         <div
                           class="bg-green-500 h-2 rounded-full"
                           style="width: 100%"
                         ></div>
                       </div>
-                      <p class="text-xs text-gray-500 mt-1">16/16</p>
-                    </div>
-                    <div class="col-span-2 text-center">
+                      <p class="text-xs text-gray-500 mt-1 text-center">
+                        16/16
+                      </p>
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <span
                         class="px-2.5 py-1 text-xs font-semibold text-green-700 bg-green-100 rounded-full"
                         >Sudah Dinilai</span
                       >
-                    </div>
-                    <div class="col-span-1 text-center">
-                      <!-- Tombol Aksi Gabungan -->
+                    </td>
+                    <td class="p-4 text-center align-middle whitespace-nowrap">
                       <div class="flex justify-center items-center space-x-2">
                         <a
                           href="./bimbingan-detail.html"
-                          class="inline-flex items-center p-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 rounded-md"
-                          title="Lihat Detail"
+                          class="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4"
+                            class="h-4 w-4 mr-1"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                           >
@@ -474,15 +502,15 @@
                               clip-rule="evenodd"
                             />
                           </svg>
+                          Detail
                         </a>
                         <a
                           href="./evaluasi-mahasiswa.html"
-                          class="inline-flex items-center p-1.5 text-sm font-medium text-indigo-600 bg-indigo-50 hover:bg-indigo-200 rounded-md"
-                          title="Evaluasi Mahasiswa"
+                          class="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded-md transition-colors"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4"
+                            class="h-4 w-4 mr-1"
                             viewBox="0 0 20 20"
                             fill="currentColor"
                           >
@@ -490,12 +518,13 @@
                               d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
                             />
                           </svg>
+                          Evaluasi
                         </a>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
         </main>
