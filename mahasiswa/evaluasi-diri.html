@@ -220,20 +220,38 @@
         <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
           <div class="container mx-auto max-w-4xl">
             <div class="bg-white p-8 rounded-xl shadow-sm">
-              <h2 class="text-2xl font-bold text-gray-800 mb-2">
-                Formulir Evaluasi Diri
-              </h2>
-              <p class="text-gray-600 mb-8">
-                Refleksikan pengalaman magang Anda dengan mengisi formulir di
-                bawah ini sejujur-jujurnya.
-              </p>
+              <div class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">
+                  Evaluasi Akhir dari Dosen Pembimbing
+                </h2>
+                <p class="text-gray-600 mt-1">
+                  Berikut adalah rekapitulasi penilaian dan masukan dari dosen
+                  pembimbing selama periode magang Anda.
+                </p>
+                <div class="mt-4 text-sm text-gray-500">
+                  <p>
+                    Dievaluasi oleh:
+                    <span class="font-semibold text-gray-700"
+                      >Rahman, M.Kom.</span
+                    >
+                  </p>
+                  <p>
+                    Tanggal Evaluasi:
+                    <span class="font-semibold text-gray-700"
+                      >26 Oktober 2025</span
+                    >
+                  </p>
+                </div>
+              </div>
 
-              <form action="#" method="POST" class="space-y-12">
+              <div class="space-y-12">
+                <!-- Bagian Penilaian Kuantitatif -->
                 <div>
                   <h3 class="text-lg font-semibold text-gray-700 mb-6">
-                    A. Penilaian Diri (Skala 1-5)
+                    A. Penilaian Kinerja (Skala 1-5)
                   </h3>
                   <div class="space-y-8">
+                    <!-- Aspek Teknis -->
                     <div class="md:grid md:grid-cols-3 md:items-center">
                       <label
                         class="block text-sm font-medium text-gray-700 md:col-span-1"
@@ -246,26 +264,56 @@
                       <div
                         class="flex items-center space-x-1 mt-2 md:mt-0 md:col-span-2"
                       >
-                        <div
-                          x-data="{ rating: 0 }"
-                          class="flex items-center space-x-1"
-                        >
-                          <template x-for="star in 5">
-                            <svg
-                              @click="rating = star"
-                              class="w-9 h-9 cursor-pointer transition-colors"
-                              :class="rating >= star ? 'text-amber-400 hover:text-amber-500' : 'text-gray-300 hover:text-gray-400'"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                              ></path>
-                            </svg>
-                          </template>
+                        <div class="flex items-center space-x-1">
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-gray-300"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
                         </div>
                       </div>
                     </div>
+                    <!-- Aspek Soft Skills -->
                     <div class="md:grid md:grid-cols-3 md:items-center">
                       <label
                         class="block text-sm font-medium text-gray-700 md:col-span-1"
@@ -278,161 +326,104 @@
                       <div
                         class="flex items-center space-x-1 mt-2 md:mt-0 md:col-span-2"
                       >
-                        <div
-                          x-data="{ rating: 0 }"
-                          class="flex items-center space-x-1"
-                        >
-                          <template x-for="star in 5">
-                            <svg
-                              @click="rating = star"
-                              class="w-9 h-9 cursor-pointer transition-colors"
-                              :class="rating >= star ? 'text-amber-400 hover:text-amber-500' : 'text-gray-300 hover:text-gray-400'"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                              ></path>
-                            </svg>
-                          </template>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="md:grid md:grid-cols-3 md:items-center">
-                      <label
-                        class="block text-sm font-medium text-gray-700 md:col-span-1"
-                        >3. Aspek Komunikasi</label
-                      >
-                      <div
-                        class="flex items-center space-x-1 mt-2 md:mt-0 md:col-span-2"
-                      >
-                        <div
-                          x-data="{ rating: 0 }"
-                          class="flex items-center space-x-1"
-                        >
-                          <template x-for="star in 5">
-                            <svg
-                              @click="rating = star"
-                              class="w-9 h-9 cursor-pointer transition-colors"
-                              :class="rating >= star ? 'text-amber-400 hover:text-amber-500' : 'text-gray-300 hover:text-gray-400'"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                              ></path>
-                            </svg>
-                          </template>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="md:grid md:grid-cols-3 md:items-center">
-                      <label
-                        class="block text-sm font-medium text-gray-700 md:col-span-1"
-                        >4. Aspek Kerjasama Tim</label
-                      >
-                      <div
-                        class="flex items-center space-x-1 mt-2 md:mt-0 md:col-span-2"
-                      >
-                        <div
-                          x-data="{ rating: 0 }"
-                          class="flex items-center space-x-1"
-                        >
-                          <template x-for="star in 5">
-                            <svg
-                              @click="rating = star"
-                              class="w-9 h-9 cursor-pointer transition-colors"
-                              :class="rating >= star ? 'text-amber-400 hover:text-amber-500' : 'text-gray-300 hover:text-gray-400'"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                            >
-                              <path
-                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                              ></path>
-                            </svg>
-                          </template>
+                        <div class="flex items-center space-x-1">
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
+                          <svg
+                            class="w-9 h-9 text-amber-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                            ></path>
+                          </svg>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
+                <!-- Bagian Uraian -->
                 <div>
                   <h3 class="text-lg font-semibold text-gray-700 mb-6">
-                    B. Uraian
+                    B. Uraian dan Masukan
                   </h3>
                   <div class="space-y-8">
                     <div>
-                      <label
-                        for="kelebihan"
-                        class="block text-sm font-medium text-gray-700"
+                      <label class="block text-sm font-medium text-gray-700"
+                        >Kelebihan Mahasiswa:</label
                       >
-                        Kelebihan yang Anda rasakan selama magang:
-                      </label>
-                      <textarea
-                        id="kelebihan"
-                        name="kelebihan"
-                        rows="4"
-                        class="mt-2 block w-full rounded-lg border-gray-200 bg-gray-50 p-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                        placeholder="Contoh: Mendapatkan pengalaman nyata di dunia kerja, belajar bekerja dalam tim, ..."
-                      ></textarea>
+                      <div
+                        class="mt-2 block w-full rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-800"
+                      >
+                        Sangat proaktif dalam mencari tugas dan cepat belajar
+                        hal-hal baru. Kemampuan analisis dan pemecahan
+                        masalahnya di atas rata-rata.
+                      </div>
                     </div>
                     <div>
-                      <label
-                        for="kekurangan"
-                        class="block text-sm font-medium text-gray-700"
+                      <label class="block text-sm font-medium text-gray-700"
+                        >Hal yang Perlu Ditingkatkan:</label
                       >
-                        Kekurangan atau tantangan yang dihadapi:
-                      </label>
-                      <textarea
-                        id="kekurangan"
-                        name="kekurangan"
-                        rows="4"
-                        class="mt-2 block w-full rounded-lg border-gray-200 bg-gray-50 p-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                        placeholder="Contoh: Kesulitan beradaptasi dengan lingkungan baru, tugas yang kurang sesuai ekspektasi, ..."
-                      ></textarea>
+                      <div
+                        class="mt-2 block w-full rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-800"
+                      >
+                        Perlu lebih percaya diri saat presentasi di depan tim.
+                        Terkadang masih terlihat ragu-ragu dalam menyampaikan
+                        ide, padahal idenya bagus.
+                      </div>
                     </div>
                     <div>
-                      <label
-                        for="saran"
-                        class="block text-sm font-medium text-gray-700"
+                      <label class="block text-sm font-medium text-gray-700"
+                        >Saran untuk Pengembangan Karir:</label
                       >
-                        Saran untuk program magang ke depannya:
-                      </label>
-                      <textarea
-                        id="saran"
-                        name="saran"
-                        rows="4"
-                        class="mt-2 block w-full rounded-lg border-gray-200 bg-gray-50 p-4 text-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
-                        placeholder="Contoh: Sebaiknya ada pembekalan yang lebih matang sebelum mahasiswa diterjunkan ke lokasi, ..."
-                      ></textarea>
+                      <div
+                        class="mt-2 block w-full rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm text-gray-800"
+                      >
+                        Sangat cocok untuk berkarir di bidang analisis data atau
+                        product management. Disarankan untuk mengambil
+                        sertifikasi terkait data science untuk memperkuat
+                        portofolio.
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <div class="pt-6 text-right">
-                  <button
-                    type="submit"
-                    class="inline-flex items-center w-full sm:w-auto px-8 py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 transition-colors"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="h-5 w-5 mr-2"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      stroke-width="2"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                      />
-                    </svg>
-                    Kirim Evaluasi
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
         </main>
