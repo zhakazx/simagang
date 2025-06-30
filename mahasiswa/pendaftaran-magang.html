@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-gray-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pendaftaran Magang - SIMAGANG</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://uin-alauddin.ac.id/themes//images/favicon.png"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="h-full">
+    <div x-data="{ open: false }" class="flex h-screen bg-gray-100">
+      <!-- Sidebar -->
+      <aside
+        class="fixed inset-y-0 left-0 z-30 w-64 px-4 py-7 overflow-y-auto bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
+        :class="{'translate-x-0': open, '-translate-x-full': !open}"
+      >
+        <div class="flex items-center justify-between px-2">
+          <a href="./dashboard.html" class="flex items-center space-x-2">
+            <img
+              src="../assets/images/logo-uin.png"
+              alt="Logo UIN"
+              class="h-10 w-auto"
+            />
+            <span class="text-xl font-bold text-gray-800">SIMAGANG</span>
+          </a>
+          <button class="lg:hidden" @click="open = false">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <nav class="mt-10">
+          <a
+            href="./pendaftaran-magang.html"
+            class="flex items-center mt-5 px-4 py-3 text-white bg-green-700 rounded-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Pendaftaran Magang</span>
+          </a>
+          <a
+            href="../index.html"
+            class="flex items-center mt-5 px-4 py-3 text-red-600 hover:bg-red-100 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <header
+          class="flex justify-between items-center py-4 px-6 bg-white border-b-2 border-gray-200"
+        >
+          <div class="flex items-center">
+            <button
+              @click="open = !open"
+              class="text-gray-500 focus:outline-none lg:hidden"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6H20M4 12H20M4 18H11"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <h1 class="text-2xl font-semibold text-gray-800 ml-4">
+              Pendaftaran Magang
+            </h1>
+          </div>
+          <div x-data="{ dropdownOpen: false }" class="relative">
+            <button
+              @click="dropdownOpen = !dropdownOpen"
+              class="flex items-center space-x-3 focus:outline-none"
+            >
+              <span class="text-right hidden sm:inline">
+                <p class="font-semibold text-gray-700 text-sm">Andi Pratama</p>
+                <p class="text-xs text-gray-500">Mahasiswa</p>
+              </span>
+              <img
+                src="https://placehold.co/40x40/E2E8F0/4A5568?text=AP"
+                alt="User Avatar"
+                class="h-10 w-10 rounded-full object-cover"
+              />
+            </button>
+            <div
+              x-show="dropdownOpen"
+              @click.away="dropdownOpen = false"
+              x-transition
+              class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20"
+            >
+              <a
+                href="./profil.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Profil</a
+              >
+              <a
+                href="../index.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+          <div class="container mx-auto max-w-4xl">
+            <div class="bg-white rounded-xl shadow-sm p-8">
+              <form action="#" method="POST" class="space-y-8">
+                <!-- Bagian 1: Informasi Perusahaan -->
+                <div>
+                  <h3 class="text-lg font-bold text-gray-900">
+                    Informasi Perusahaan Tujuan
+                  </h3>
+                  <p class="text-sm text-gray-500 mt-1">
+                    Masukkan detail perusahaan tempat Anda akan melaksanakan
+                    magang.
+                  </p>
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 mt-6"
+                  >
+                    <div class="md:col-span-2">
+                      <label
+                        for="nama_perusahaan"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Nama Perusahaan</label
+                      >
+                      <input
+                        type="text"
+                        name="nama_perusahaan"
+                        id="nama_perusahaan"
+                        class="w-full py-2.5 px-4 bg-gray-100 border border-gray-200 rounded-lg"
+                        placeholder="Contoh: PT Teknologi Indonesia Maju"
+                      />
+                    </div>
+                    <div class="md:col-span-2">
+                      <label
+                        for="alamat_perusahaan"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Alamat Lengkap Perusahaan</label
+                      >
+                      <textarea
+                        name="alamat_perusahaan"
+                        id="alamat_perusahaan"
+                        rows="3"
+                        class="w-full py-2.5 px-4 bg-gray-100 border border-gray-200 rounded-lg"
+                        placeholder="Jl. Jenderal Sudirman Kav. 52-53, Jakarta Selatan"
+                      ></textarea>
+                    </div>
+                    <div>
+                      <label
+                        for="email_perusahaan"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Email HRD Perusahaan</label
+                      >
+                      <input
+                        type="email"
+                        name="email_perusahaan"
+                        id="email_perusahaan"
+                        class="w-full py-2.5 px-4 bg-gray-100 border border-gray-200 rounded-lg"
+                        placeholder="hrd@perusahaan.com"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="cp_perusahaan"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Contact Person (Opsional)</label
+                      >
+                      <input
+                        type="text"
+                        name="cp_perusahaan"
+                        id="cp_perusahaan"
+                        class="w-full py-2.5 px-4 bg-gray-100 border border-gray-200 rounded-lg"
+                        placeholder="Bapak Budi (0812...)"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bagian 2: Detail Magang -->
+                <div class="border-t border-gray-200 pt-8">
+                  <h3 class="text-lg font-bold text-gray-900">Detail Magang</h3>
+                  <div
+                    class="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 mt-6"
+                  >
+                    <div class="md:col-span-2">
+                      <label
+                        for="posisi_magang"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Posisi / Bidang yang Dilamar</label
+                      >
+                      <input
+                        type="text"
+                        name="posisi_magang"
+                        id="posisi_magang"
+                        class="w-full py-2.5 px-4 bg-gray-100 border border-gray-200 rounded-lg"
+                        placeholder="Contoh: Frontend Developer Intern, Analis Data"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="tanggal_mulai"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Tanggal Mulai</label
+                      >
+                      <input
+                        type="date"
+                        name="tanggal_mulai"
+                        id="tanggal_mulai"
+                        class="w-full py-2.5 px-4 bg-gray-100 border border-gray-200 rounded-lg text-gray-500"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="tanggal_selesai"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Tanggal Selesai</label
+                      >
+                      <input
+                        type="date"
+                        name="tanggal_selesai"
+                        id="tanggal_selesai"
+                        class="w-full py-2.5 px-4 bg-gray-100 border border-gray-200 rounded-lg text-gray-500"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bagian 3: Unggah Dokumen -->
+                <div class="border-t border-gray-200 pt-8">
+                  <h3 class="text-lg font-bold text-gray-900">
+                    Unggah Dokumen Pendukung
+                  </h3>
+                  <div class="space-y-5 mt-6">
+                    <div>
+                      <label
+                        for="file_cv"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Surat dari perusahaan (tempat magang)
+                        <span class="text-red-500">*</span></label
+                      >
+                      <input
+                        type="file"
+                        id="file_cv"
+                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        for="file_transkrip"
+                        class="block text-sm font-medium text-gray-700 mb-1"
+                        >Transkrip Nilai Terakhir
+                        <span class="text-red-500">*</span></label
+                      >
+                      <input
+                        type="file"
+                        id="file_transkrip"
+                        class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-green-100 file:text-green-700 hover:file:bg-green-200"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bagian 4: Aksi -->
+                <div class="border-t border-gray-200 pt-6">
+                  <div class="flex items-start mb-6">
+                    <div class="flex items-center h-5">
+                      <input
+                        id="konfirmasi"
+                        name="konfirmasi"
+                        type="checkbox"
+                        class="h-4 w-4 text-green-600 border-gray-300 rounded focus:ring-green-500"
+                      />
+                    </div>
+                    <div class="ml-3 text-sm">
+                      <label for="konfirmasi" class="font-medium text-gray-700"
+                        >Saya menyatakan bahwa data yang saya isikan adalah
+                        benar dan dapat dipertanggungjawabkan.</label
+                      >
+                    </div>
+                  </div>
+                  <div class="flex justify-end space-x-3">
+                    <button
+                      type="button"
+                      class="bg-white py-2.5 px-6 border border-gray-300 rounded-lg shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50"
+                    >
+                      Simpan sebagai Draft
+                    </button>
+                    <button
+                      type="submit"
+                      class="inline-flex justify-center items-center py-2.5 px-6 border border-transparent shadow-sm text-sm font-medium rounded-lg text-white bg-green-700 hover:bg-green-800"
+                    >
+                      Kirim Pendaftaran
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
