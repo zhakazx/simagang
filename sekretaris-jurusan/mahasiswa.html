@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="id" class="h-full bg-gray-50">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Mahasiswa - SIMAGANG</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://uin-alauddin.ac.id/themes//images/favicon.png"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  </head>
+  <body class="h-full">
+    <div x-data="{ open: false }" class="flex h-screen bg-gray-100">
+      <!-- Sidebar -->
+      <aside
+        class="fixed inset-y-0 left-0 z-30 w-64 px-4 py-7 overflow-y-auto bg-white shadow-lg transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0"
+        :class="{'translate-x-0': open, '-translate-x-full': !open}"
+      >
+        <div class="flex items-center justify-between px-2">
+          <a href="./dashboard.html" class="flex items-center space-x-2">
+            <img
+              src="/images/logo-uin.png"
+              alt="Logo UIN"
+              class="h-10 w-auto"
+            />
+            <span class="text-xl font-bold text-gray-800">SIMAGANG</span>
+          </a>
+          <button class="lg:hidden" @click="open = false">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <nav class="mt-10">
+          <a
+            href="./dashboard.html"
+            class="flex items-center px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Dashboard</span>
+          </a>
+          <a
+            href="./permohonan-magang.html"
+            class="flex items-center mt-5 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Permohonan Magang</span>
+          </a>
+          <a
+            href="./penetapan-dosbing.html"
+            class="flex items-center mt-5 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Penetapan Dosbing</span>
+          </a>
+          <a
+            href="./dosen.html"
+            class="flex items-center mt-5 px-4 py-3 text-gray-600 hover:bg-gray-200 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Manajemen Dosen</span>
+          </a>
+          <a
+            href="./mahasiswa.html"
+            class="flex items-center mt-5 px-4 py-3 text-white bg-green-700 rounded-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path d="M12 14l9-5-9-5-9 5 9 5z" />
+              <path
+                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-5.998 12.078 12.078 0 01.665-6.479L12 14z"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Manajemen Mahasiswa</span>
+          </a>
+          <a
+            href="../index.html"
+            class="flex items-center mt-5 px-4 py-3 text-red-600 hover:bg-red-100 rounded-lg transition-colors duration-300"
+          >
+            <svg
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"
+              />
+            </svg>
+            <span class="mx-4 font-medium">Logout</span>
+          </a>
+        </nav>
+      </aside>
+
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Header -->
+        <header
+          class="flex justify-between items-center py-4 px-6 bg-white border-b-2 border-gray-200"
+        >
+          <div class="flex items-center">
+            <button
+              @click="open = !open"
+              class="text-gray-500 focus:outline-none lg:hidden"
+            >
+              <svg
+                class="h-6 w-6"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6H20M4 12H20M4 18H11"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </button>
+            <h1 class="text-2xl font-semibold text-gray-800 ml-4">
+              Manajemen Mahasiswa
+            </h1>
+          </div>
+          <div x-data="{ dropdownOpen: false }" class="relative">
+            <button
+              @click="dropdownOpen = !dropdownOpen"
+              class="flex items-center space-x-3 focus:outline-none"
+            >
+              <span class="text-right hidden sm:inline">
+                <p class="font-semibold text-gray-700 text-sm">
+                  Aisyah, S.Kom.
+                </p>
+                <p class="text-xs text-gray-500">Sekretaris Jurusan TI</p>
+              </span>
+              <img
+                src="https://placehold.co/40x40/E2E8F0/4A5568?text=AS"
+                alt="User Avatar"
+                class="h-10 w-10 rounded-full object-cover"
+              />
+            </button>
+            <div
+              x-show="dropdownOpen"
+              @click.away="dropdownOpen = false"
+              x-transition
+              class="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-20"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Profil</a
+              >
+              <a
+                href="../index.html"
+                class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-600 hover:text-white"
+                >Logout</a
+              >
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+          <div class="container mx-auto">
+            <div
+              class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8"
+            >
+              <div class="flex flex-col sm:flex-row items-center gap-4 w-full">
+                <div class="relative w-full sm:w-auto flex-grow">
+                  <span
+                    class="absolute inset-y-0 left-0 flex items-center pl-3"
+                  >
+                    <svg
+                      class="w-5 h-5 text-gray-400"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      ></path>
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Cari Nama atau NIM..."
+                    class="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  />
+                </div>
+                <select
+                  class="w-full sm:w-auto py-2 px-4 bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                >
+                  <option>Status Magang: Semua</option>
+                  <option>Aktif</option>
+                  <option>Selesai</option>
+                  <option>Belum Magang</option>
+                </select>
+              </div>
+              <div
+                class="flex items-center gap-3 w-full md:w-auto flex-shrink-0"
+              >
+                <button
+                  class="w-full md:w-auto flex-shrink-0 px-4 py-2 bg-white border border-gray-300 text-gray-700 font-semibold rounded-lg shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                    />
+                  </svg>
+                  Import CSV
+                </button>
+                <a
+                  href="#"
+                  class="w-full md:w-auto flex-shrink-0 px-5 py-2 bg-green-700 text-white font-semibold rounded-lg shadow-sm hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors flex items-center justify-center"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
+                  Tambah Mahasiswa
+                </a>
+              </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-sm">
+              <div class="overflow-x-auto">
+                <table class="w-full min-w-[900px]">
+                  <thead>
+                    <tr class="bg-gray-50">
+                      <th
+                        class="p-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                      >
+                        Mahasiswa
+                      </th>
+                      <th
+                        class="p-4 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                      >
+                        Jurusan
+                      </th>
+                      <th
+                        class="p-4 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                      >
+                        IPK
+                      </th>
+                      <th
+                        class="p-4 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                      >
+                        Status Magang
+                      </th>
+                      <th
+                        class="p-4 text-center text-xs font-semibold text-gray-500 uppercase tracking-wider"
+                      >
+                        Aksi
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-100">
+                    <tr>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                          <div
+                            class="flex-shrink-0 w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center font-bold"
+                          >
+                            AP
+                          </div>
+                          <div>
+                            <p class="font-medium text-gray-900">
+                              Andi Pratama
+                            </p>
+                            <p class="text-sm text-gray-500">60200121001</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-gray-700">
+                        Teknik Informatika
+                      </td>
+                      <td
+                        class="p-4 text-center text-sm font-medium text-gray-800"
+                      >
+                        3.85
+                      </td>
+                      <td class="p-4 text-center">
+                        <span
+                          class="px-2.5 py-1 text-xs font-semibold text-blue-800 bg-blue-100 rounded-full"
+                          >Aktif</span
+                        >
+                      </td>
+                      <td class="p-4 text-center">
+                        <a
+                          href="#"
+                          class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 rounded-md"
+                          >Edit</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                          <div
+                            class="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center font-bold"
+                          >
+                            FN
+                          </div>
+                          <div>
+                            <p class="font-medium text-gray-900">
+                              Fajar Nugraha
+                            </p>
+                            <p class="text-sm text-gray-500">60200121030</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-gray-700">
+                        Teknik Informatika
+                      </td>
+                      <td
+                        class="p-4 text-center text-sm font-medium text-gray-800"
+                      >
+                        3.91
+                      </td>
+                      <td class="p-4 text-center">
+                        <span
+                          class="px-2.5 py-1 text-xs font-semibold text-gray-800 bg-gray-200 rounded-full"
+                          >Belum Magang</span
+                        >
+                      </td>
+                      <td class="p-4 text-center">
+                        <a
+                          href="#"
+                          class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 rounded-md"
+                          >Edit</a
+                        >
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="p-4">
+                        <div class="flex items-center space-x-3">
+                          <div
+                            class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center font-bold"
+                          >
+                            DL
+                          </div>
+                          <div>
+                            <p class="font-medium text-gray-900">
+                              Dewi Lestari
+                            </p>
+                            <p class="text-sm text-gray-500">60300120005</p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-4 text-sm text-gray-700">
+                        Sistem Informasi
+                      </td>
+                      <td
+                        class="p-4 text-center text-sm font-medium text-gray-800"
+                      >
+                        3.72
+                      </td>
+                      <td class="p-4 text-center">
+                        <span
+                          class="px-2.5 py-1 text-xs font-semibold text-green-800 bg-green-100 rounded-full"
+                          >Selesai</span
+                        >
+                      </td>
+                      <td class="p-4 text-center">
+                        <a
+                          href="#"
+                          class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 rounded-md"
+                          >Edit</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="p-4 flex flex-col sm:flex-row items-center justify-between"
+              >
+                <span class="text-sm text-gray-600 mb-2 sm:mb-0"
+                  >Menampilkan 1-3 dari 50 Mahasiswa</span
+                >
+                <div class="inline-flex items-center space-x-1">
+                  <a
+                    href="#"
+                    class="px-3 py-1.5 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                    >&laquo;</a
+                  >
+                  <a
+                    href="#"
+                    class="px-3 py-1.5 text-sm font-medium text-white bg-green-600 border border-green-600 rounded-md"
+                    >1</a
+                  >
+                  <a
+                    href="#"
+                    class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                    >2</a
+                  >
+                  <a
+                    href="#"
+                    class="px-3 py-1.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                    >3</a
+                  >
+                  <a
+                    href="#"
+                    class="px-3 py-1.5 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-50"
+                    >&raquo;</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
