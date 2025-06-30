@@ -181,7 +181,7 @@
           <div class="container mx-auto">
             <a
               href="./bimbingan.html"
-              class="inline-flex items-center text-sm text-green-700 hover:underline mb-6"
+              class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm font-semibold rounded-lg bg-green-700 text-white font-semibold hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
               <svg
                 class="w-4 h-4 mr-2"
@@ -203,12 +203,12 @@
               <!-- Kolom Kiri: Profil Mahasiswa & Penilaian Laporan -->
               <div class="lg:col-span-1 space-y-8">
                 <!-- Profil Mahasiswa -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="bg-white p-6 rounded-2xl shadow-md">
                   <div class="flex flex-col items-center text-center">
                     <img
                       src="https://placehold.co/100x100/E2E8F0/4A5568?text=AP"
                       alt="Avatar Mahasiswa"
-                      class="h-24 w-24 rounded-full object-cover mb-4"
+                      class="h-24 w-24 rounded-full object-cover mb-4 border-4 border-gray-200"
                     />
                     <h3 class="text-xl font-bold text-gray-900">
                       Andi Pratama
@@ -219,23 +219,27 @@
                   <div class="border-t mt-4 pt-4 text-sm">
                     <p>
                       <strong class="text-gray-600">Tempat Magang:</strong
-                      ><br />Dinas Kominfo Makassar
+                      ><br /><span class="text-gray-800"
+                        >Dinas Kominfo Makassar</span
+                      >
                     </p>
                     <p class="mt-2">
-                      <strong class="text-gray-600">Periode:</strong><br />25
-                      Juni - 25 Oktober 2025
+                      <strong class="text-gray-600">Periode:</strong><br /><span
+                        class="text-gray-800"
+                        >25 Juni - 25 Oktober 2025</span
+                      >
                     </p>
                   </div>
                 </div>
 
                 <!-- Penilaian Laporan Akhir -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="bg-white p-6 rounded-2xl shadow-md">
                   <h3 class="text-lg font-semibold text-gray-800 mb-4">
                     Penilaian Laporan Akhir
                   </h3>
                   <a
                     href="#"
-                    class="inline-flex items-center w-full justify-center text-sm mb-4 px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
+                    class="inline-flex items-center w-full justify-center text-sm mb-4 px-4 py-2.5 border border-green-600 text-green-700 rounded-lg hover:bg-green-50 transition font-semibold"
                   >
                     <svg
                       class="w-5 h-5 mr-2"
@@ -253,31 +257,19 @@
                     Download Laporan
                   </a>
                   <form>
-                    <div class="mb-3">
+                    <div class="mb-4">
                       <label
                         for="nilai_laporan"
                         class="block text-sm font-medium text-gray-700"
-                        >Nilai Laporan (1-100)</label
+                        >Nilai Akhir Laporan (1-100)</label
                       >
                       <input
                         type="number"
                         id="nilai_laporan"
-                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm"
+                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                       />
                     </div>
-                    <div class="mb-3">
-                      <label
-                        for="nilai_presentasi"
-                        class="block text-sm font-medium text-gray-700"
-                        >Nilai Presentasi (1-100)</label
-                      >
-                      <input
-                        type="number"
-                        id="nilai_presentasi"
-                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm"
-                      />
-                    </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                       <label
                         for="komentar_dosen"
                         class="block text-sm font-medium text-gray-700"
@@ -286,20 +278,33 @@
                       <textarea
                         id="komentar_dosen"
                         rows="4"
-                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm"
+                        class="mt-1 w-full border-gray-300 rounded-md shadow-sm px-4 py-2 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors"
                       ></textarea>
                     </div>
                     <button
-                      class="w-full bg-green-700 text-white py-2 px-4 rounded-md hover:bg-green-800 transition"
+                      class="w-full bg-green-700 text-white py-2.5 px-4 rounded-lg hover:bg-green-800 transition duration-300 shadow-sm hover:shadow-md font-bold flex items-center justify-center space-x-2"
                     >
-                      Simpan Nilai
+                      <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"
+                        ></path>
+                      </svg>
+                      <span>Simpan Nilai</span>
                     </button>
                   </form>
                 </div>
               </div>
 
               <!-- Kolom Kanan: Tabel Logbook -->
-              <div class="lg:col-span-2 bg-white rounded-lg shadow-md">
+              <div class="lg:col-span-2 bg-white rounded-2xl shadow-md">
                 <div class="p-6 border-b">
                   <h3 class="text-xl font-semibold text-gray-800">
                     Validasi Logbook
@@ -337,14 +342,14 @@
                         <td class="p-4 text-sm text-gray-500">02 Juli 2025</td>
                         <td class="p-4 text-center">
                           <span
-                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-200 rounded-full"
+                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full"
                             >Divalidasi</span
                           >
                         </td>
                         <td class="p-4 text-center">
                           <a
                             href="./validasi-logbook.html"
-                            class="text-blue-600 hover:underline text-sm"
+                            class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold hover:bg-gray-300 transition"
                             >Lihat</a
                           >
                         </td>
@@ -354,14 +359,14 @@
                         <td class="p-4 text-sm text-gray-500">09 Juli 2025</td>
                         <td class="p-4 text-center">
                           <span
-                            class="px-3 py-1 text-xs font-medium text-red-800 bg-red-200 rounded-full"
+                            class="px-3 py-1 text-xs font-medium text-red-800 bg-red-100 rounded-full"
                             >Revisi</span
                           >
                         </td>
                         <td class="p-4 text-center">
                           <a
                             href="./validasi-logbook.html"
-                            class="text-blue-600 hover:underline text-sm"
+                            class="bg-red-200 text-red-800 px-3 py-1 rounded-full text-xs font-semibold hover:bg-red-300 transition"
                             >Periksa</a
                           >
                         </td>
@@ -371,14 +376,14 @@
                         <td class="p-4 text-sm text-gray-500">16 Juli 2025</td>
                         <td class="p-4 text-center">
                           <span
-                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-200 rounded-full"
+                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full"
                             >Divalidasi</span
                           >
                         </td>
                         <td class="p-4 text-center">
                           <a
                             href="./validasi-logbook.html"
-                            class="text-blue-600 hover:underline text-sm"
+                            class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold hover:bg-gray-300 transition"
                             >Lihat</a
                           >
                         </td>
@@ -388,14 +393,14 @@
                         <td class="p-4 text-sm text-gray-500">23 Juli 2025</td>
                         <td class="p-4 text-center">
                           <span
-                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-200 rounded-full"
+                            class="px-3 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full"
                             >Divalidasi</span
                           >
                         </td>
                         <td class="p-4 text-center">
                           <a
                             href="./validasi-logbook.html"
-                            class="text-blue-600 hover:underline text-sm"
+                            class="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs font-semibold hover:bg-gray-300 transition"
                             >Lihat</a
                           >
                         </td>
@@ -405,14 +410,14 @@
                         <td class="p-4 text-sm text-gray-500">30 Juli 2025</td>
                         <td class="p-4 text-center">
                           <span
-                            class="px-3 py-1 text-xs font-medium text-blue-800 bg-blue-200 rounded-full"
+                            class="px-3 py-1 text-xs font-medium text-blue-800 bg-blue-100 rounded-full"
                             >Terkirim</span
                           >
                         </td>
                         <td class="p-4 text-center">
                           <a
                             href="./validasi-logbook.html"
-                            class="text-blue-600 hover:underline text-sm font-bold"
+                            class="bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold hover:bg-blue-700 transition"
                             >Validasi</a
                           >
                         </td>
