@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Sistem Informasi Magang</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link
       rel="icon"
       type="image/png"
@@ -13,10 +14,10 @@
   </head>
   <body class="bg-gray-100">
     <div class="flex min-h-screen">
+      <!-- Kolom Kiri: Video Background -->
       <div
         class="hidden lg:flex w-1/2 relative items-center justify-center overflow-hidden"
       >
-        <!-- Video sebagai background -->
         <video
           autoplay
           loop
@@ -30,11 +31,7 @@
           />
           Browser Anda tidak mendukung tag video.
         </video>
-
-        <!-- Lapisan overlay gelap agar gambar lebih terlihat -->
         <div class="absolute z-10 w-full h-full bg-black opacity-40"></div>
-
-        <!-- Konten di atas video (Gambar Logo Putih) -->
         <div class="relative z-20 p-12 text-center">
           <img
             src="https://uin-alauddin.ac.id/themes//images/uin-white.png"
@@ -44,13 +41,14 @@
         </div>
       </div>
 
+      <!-- Kolom Kanan: Form Login -->
       <div class="w-full lg:w-1/2 flex items-center justify-center p-6 sm:p-8">
         <div class="max-w-md w-full">
           <div class="text-center mb-8">
             <img
-              src="assets/images/logo-uin.png"
+              src="./assets/images/logo-uin.png"
               alt="Logo UIN Alauddin"
-              class="w-24 h-30 mx-auto mb-4"
+              class="w-24 h-auto mx-auto mb-4"
             />
             <h1 class="text-3xl font-bold text-gray-800">
               Sistem Informasi Magang
@@ -64,52 +62,150 @@
             </h2>
 
             <form id="login-form">
+              <!-- Pesan Error -->
               <div
-                id="error-message"
-                class="hidden mb-4 p-3 bg-red-100 text-red-700 text-sm rounded-lg"
+                id="error-message-general"
+                class="hidden mb-4 p-3 bg-red-100 text-red-700 text-sm rounded-lg text-center"
               >
                 Username atau password salah. Silakan coba lagi.
               </div>
+              <div
+                id="error-message-register"
+                class="hidden mb-4 p-3 bg-yellow-100 text-yellow-800 text-sm rounded-lg text-center"
+              >
+                Akun ini belum terdaftar sebagai peserta magang, silahkan daftar
+                terlebih dahulu.
+              </div>
 
+              <!-- Input Username dengan Ikon -->
               <div class="mb-5">
                 <label
                   for="username"
                   class="block mb-2 text-sm font-medium text-gray-700"
                   >Username (NIM / NIDN)</label
                 >
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  placeholder="Masukkan NIM atau NIDN Anda"
-                  class="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300"
-                  required
-                />
+                <div class="relative">
+                  <span
+                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                  >
+                    <svg
+                      class="w-5 h-5 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Masukkan NIM atau NIDN Anda"
+                    class="w-full pl-10 pr-4 py-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300"
+                    required
+                  />
+                </div>
               </div>
 
-              <div class="mb-6">
+              <!-- Input Password dengan Ikon dan Toggle -->
+              <div class="mb-6" x-data="{ showPassword: false }">
                 <label
                   for="password"
                   class="block mb-2 text-sm font-medium text-gray-700"
                   >Password</label
                 >
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="••••••••"
-                  class="w-full px-4 py-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300"
-                  required
-                />
+                <div class="relative">
+                  <span
+                    class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"
+                  >
+                    <svg
+                      class="w-5 h-5 text-gray-400"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    :type="showPassword ? 'text' : 'password'"
+                    id="password"
+                    name="password"
+                    placeholder="••••••••"
+                    class="w-full pl-10 pr-10 py-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition duration-300"
+                    required
+                  />
+                  <button
+                    type="button"
+                    @click="showPassword = !showPassword"
+                    class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                  >
+                    <svg
+                      x-show="!showPassword"
+                      class="w-5 h-5 text-gray-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                      />
+                    </svg>
+                    <svg
+                      x-show="showPassword"
+                      class="w-5 h-5 text-gray-500"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      style="display: none"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a10.052 10.052 0 013.453-5.013m9.284 9.284a4.006 4.006 0 00-5.656-5.656m5.656 5.656l-5.656-5.656M3 3l18 18"
+                      />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
-              <div>
+              <div class="space-y-4">
                 <button
                   type="submit"
                   class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3 text-center transition duration-300"
                 >
                   Login
                 </button>
+                <a
+                  href="./mahasiswa/pendaftaran-magang.html"
+                  class="block w-full text-green-800 bg-green-100 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-3 text-center transition duration-300"
+                >
+                  Daftar Magang
+                </a>
               </div>
             </form>
           </div>
@@ -121,40 +217,38 @@
         </div>
       </div>
     </div>
+
     <script>
-      // Menunggu hingga seluruh halaman HTML selesai dimuat
       document.addEventListener("DOMContentLoaded", function () {
-        // Mengambil elemen-elemen yang diperlukan dari halaman
         const loginForm = document.getElementById("login-form");
         const usernameInput = document.getElementById("username");
         const passwordInput = document.getElementById("password");
-        const errorMessage = document.getElementById("error-message");
+        const errorMessageGeneral = document.getElementById(
+          "error-message-general"
+        );
+        const errorMessageRegister = document.getElementById(
+          "error-message-register"
+        );
 
-        // Menambahkan 'event listener' yang akan berjalan saat form di-submit
         loginForm.addEventListener("submit", function (event) {
-          // Mencegah form melakukan aksi default (reload halaman)
           event.preventDefault();
 
-          // Mengambil nilai dari input username dan password
           const username = usernameInput.value;
           const password = passwordInput.value;
 
-          // Sembunyikan pesan error setiap kali tombol login ditekan
-          errorMessage.classList.add("hidden");
+          errorMessageGeneral.classList.add("hidden");
+          errorMessageRegister.classList.add("hidden");
 
-          // Logika untuk memeriksa username dan password
           if (username === "mahasiswa" && password === "12345") {
-            // Jika cocok, arahkan ke dashboard mahasiswa
             window.location.href = "./mahasiswa/dashboard.html";
           } else if (username === "dosen" && password === "12345") {
-            // Jika cocok, arahkan ke dashboard dosen pembimbing
-            window.location.href = "./dosen-pembimbing/dashboard.html";
+            window.location.href = "./dosen_pembimbing/dashboard.html";
           } else if (username === "sekretaris" && password === "12345") {
-            // Jika cocok, arahkan ke dashboard sekretaris jurusan
-            window.location.href = "./sekretaris-jurusan/dashboard.html";
+            window.location.href = "./sekretaris_jurusan/dashboard.html";
+          } else if (username === "mahasiswa_baru" && password === "12345") {
+            errorMessageRegister.classList.remove("hidden");
           } else {
-            // Jika tidak ada yang cocok, tampilkan pesan error
-            errorMessage.classList.remove("hidden");
+            errorMessageGeneral.classList.remove("hidden");
           }
         });
       });
