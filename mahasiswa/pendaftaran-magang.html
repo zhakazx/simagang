@@ -154,6 +154,17 @@
         <!-- Main Content -->
         <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
           <div class="container mx-auto max-w-4xl">
+            <div
+              class="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 mb-6 rounded-md"
+              role="alert"
+            >
+              <p class="font-bold">Catatan</p>
+              <p>
+                Pastikan Anda telah mengisi semua informasi dengan benar sebelum
+                mengirimkan pendaftaran magang. Dokumen yang diperlukan harus
+                diunggah dalam format PDF atau DOCX.
+              </p>
+            </div>
             <div class="bg-white rounded-xl shadow-sm p-8">
               <form action="#" method="POST" class="space-y-8">
                 <!-- Bagian 1: Informasi Perusahaan -->
@@ -286,7 +297,7 @@
                       <label
                         for="file_cv"
                         class="block text-sm font-medium text-gray-700 mb-1"
-                        >Surat dari perusahaan (tempat magang)
+                        >Surat dari perusahaan (pdf / docx)
                         <span class="text-red-500">*</span></label
                       >
                       <input
@@ -299,7 +310,7 @@
                       <label
                         for="file_transkrip"
                         class="block text-sm font-medium text-gray-700 mb-1"
-                        >Transkrip Nilai Terakhir
+                        >Transkrip Nilai Terakhir (pdf / docx)
                         <span class="text-red-500">*</span></label
                       >
                       <input
