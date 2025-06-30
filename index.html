@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - Sistem Informasi Magang</title>
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Alpine.js untuk show/hide password -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <link
       rel="icon"
@@ -46,9 +48,10 @@
         <div class="max-w-md w-full">
           <div class="text-center mb-8">
             <img
-              src="./assets/images/logo-uin.png"
+              src="/images/logo-uin.png"
               alt="Logo UIN Alauddin"
               class="w-24 h-auto mx-auto mb-4"
+              onerror="this.onerror=null;this.src='https://placehold.co/100x120/E2E8F0/4A5568?text=UIN';"
             />
             <h1 class="text-3xl font-bold text-gray-800">
               Sistem Informasi Magang
@@ -64,17 +67,10 @@
             <form id="login-form">
               <!-- Pesan Error -->
               <div
-                id="error-message-general"
+                id="error-message"
                 class="hidden mb-4 p-3 bg-red-100 text-red-700 text-sm rounded-lg text-center"
               >
                 Username atau password salah. Silakan coba lagi.
-              </div>
-              <div
-                id="error-message-register"
-                class="hidden mb-4 p-3 bg-yellow-100 text-yellow-800 text-sm rounded-lg text-center"
-              >
-                Akun ini belum terdaftar sebagai peserta magang, silahkan daftar
-                terlebih dahulu.
               </div>
 
               <!-- Input Username dengan Ikon -->
@@ -193,19 +189,13 @@
                 </div>
               </div>
 
-              <div class="space-y-4">
+              <div>
                 <button
                   type="submit"
                   class="w-full text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-3 text-center transition duration-300"
                 >
                   Login
                 </button>
-                <a
-                  href="./mahasiswa/pendaftaran-magang.html"
-                  class="block w-full text-green-800 bg-green-100 hover:bg-green-200 focus:ring-4 focus:outline-none focus:ring-green-200 font-medium rounded-lg text-sm px-5 py-3 text-center transition duration-300"
-                >
-                  Daftar Magang
-                </a>
               </div>
             </form>
           </div>
@@ -223,12 +213,25 @@
         const loginForm = document.getElementById("login-form");
         const usernameInput = document.getElementById("username");
         const passwordInput = document.getElementById("password");
-        const errorMessageGeneral = document.getElementById(
-          "error-message-general"
-        );
-        const errorMessageRegister = document.getElementById(
-          "error-message-register"
-        );
+        const errorMessage = document.getElementById("error-message");
+
+        // Simulasi database pengguna dengan status magang
+        const users = [
+          {
+            username: "mahasiswa_aktif",
+            password: "123",
+            role: "mahasiswa",
+            status_magang: "aktif",
+          },
+          {
+            username: "mahasiswa_belum",
+            password: "123",
+            role: "mahasiswa",
+            status_magang: "belum_magang",
+          },
+          { username: "dosen", password: "123", role: "dosen" },
+          { username: "sekretaris", password: "123", role: "sekretaris" },
+        ];
 
         loginForm.addEventListener("submit", function (event) {
           event.preventDefault();
@@ -236,19 +239,40 @@
           const username = usernameInput.value;
           const password = passwordInput.value;
 
-          errorMessageGeneral.classList.add("hidden");
-          errorMessageRegister.classList.add("hidden");
+          // Sembunyikan pesan error setiap kali tombol login ditekan
+          errorMessage.classList.add("hidden");
 
-          if (username === "mahasiswa" && password === "12345") {
-            window.location.href = "./mahasiswa/dashboard.html";
-          } else if (username === "dosen" && password === "12345") {
-            window.location.href = "./dosen_pembimbing/dashboard.html";
-          } else if (username === "sekretaris" && password === "12345") {
-            window.location.href = "./sekretaris_jurusan/dashboard.html";
-          } else if (username === "mahasiswa_baru" && password === "12345") {
-            errorMessageRegister.classList.remove("hidden");
+          // Cari pengguna di database simulasi
+          const foundUser = users.find(
+            (user) => user.username === username && user.password === password
+          );
+
+          if (foundUser) {
+            // Jika pengguna ditemukan, periksa peran dan status
+            switch (foundUser.role) {
+              case "mahasiswa":
+                if (foundUser.status_magang === "aktif") {
+                  // Arahkan ke dashboard jika status magang aktif
+                  window.location.href = "./mahasiswa/dashboard.html";
+                } else if (foundUser.status_magang === "belum_magang") {
+                  // Arahkan ke halaman pendaftaran jika belum magang
+                  window.location.href = "./mahasiswa/pendaftaran-magang.html";
+                }
+                break;
+              case "dosen":
+                window.location.href = "./dosen_pembimbing/dashboard.html";
+                break;
+              case "sekretaris":
+                window.location.href = "./sekretaris_jurusan/dashboard.html";
+                break;
+              default:
+                // Peran tidak diketahui, tampilkan error
+                errorMessage.classList.remove("hidden");
+                break;
+            }
           } else {
-            errorMessageGeneral.classList.remove("hidden");
+            // Jika pengguna tidak ditemukan, tampilkan pesan error
+            errorMessage.classList.remove("hidden");
           }
         });
       });
