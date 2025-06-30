@@ -219,185 +219,120 @@
         </header>
 
         <!-- Main Content -->
-        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6">
-          <div class="container mx-auto">
-            <div
-              class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4"
+        <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-50 p-6">
+          <div class="container mx-auto max-w-4xl">
+            <a
+              href="./logbook.html"
+              class="inline-flex items-center gap-2 px-4 py-2 mb-6 text-sm font-semibold rounded-lg bg-green-700 text-white hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
             >
-              <div class="relative w-full sm:w-auto">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <svg
-                    class="w-5 h-5 text-gray-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    stroke-width="2"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>
-                </span>
-                <input
-                  type="text"
-                  placeholder="Cari berdasarkan minggu..."
-                  class="w-full sm:w-72 pl-10 pr-4 py-2 bg-white border border-gray-200 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-all"
-                />
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                ></path>
+              </svg>
+              Kembali ke Daftar Logbook
+            </a>
+
+            <div class="bg-white p-8 rounded-xl shadow-sm">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h2 class="text-2xl font-bold text-gray-800">
+                    Detail Logbook Minggu ke-1
+                  </h2>
+                  <p class="text-gray-600">Periode: 25 Juni - 01 Juli 2025</p>
+                </div>
+                <span
+                  class="px-3 py-1 text-sm font-medium text-green-800 bg-green-100 rounded-full"
+                  >Telah Divalidasi</span
+                >
               </div>
 
-              <a
-                href="./tambah-logbook.html"
-                class="flex items-center justify-center w-full sm:w-auto px-5 py-2 bg-green-700 text-white rounded-lg shadow-sm hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-colors"
+              <!-- Catatan Validasi dari Dosen -->
+              <div
+                class="mb-8 mt-4 p-4 bg-green-50 border-l-4 border-green-500"
               >
-                <svg
-                  class="w-5 h-5 mr-2"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 4v16m8-8H4"
-                  />
-                </svg>
-                Isi Logbook Baru
-              </a>
-            </div>
+                <p class="font-bold text-green-800">
+                  Catatan dari Dosen Pembimbing:
+                </p>
+                <p class="text-sm text-green-700 mt-1">
+                  "Pekerjaan yang bagus untuk minggu pertama. Pertahankan
+                  momentum ini."
+                </p>
+              </div>
 
-            <div class="bg-white rounded-xl shadow-md overflow-hidden">
-              <div class="overflow-x-auto">
-                <table class="w-full table-auto">
-                  <thead class="bg-gray-50">
-                    <tr>
-                      <th
-                        class="p-4 text-left text-sm font-semibold text-gray-600 tracking-wider"
+              <!-- Read-only content -->
+              <div class="space-y-8">
+                <div>
+                  <h4 class="block text-sm font-medium text-gray-700">
+                    Uraian Kegiatan
+                  </h4>
+                  <div
+                    class="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 p-4 text-sm text-gray-800"
+                  >
+                    - Pengenalan lingkungan kerja dan tim di Dinas Kominfo. -
+                    Mempelajari dokumentasi proyek yang sedang berjalan. - Setup
+                    lingkungan pengembangan (development environment) di laptop.
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="block text-sm font-medium text-gray-700">
+                    Kendala yang Dihadapi
+                  </h4>
+                  <div
+                    class="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 p-4 text-sm text-gray-800"
+                  >
+                    Tidak ada kendala berarti.
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="block text-sm font-medium text-gray-700">
+                    Solusi yang Dilakukan
+                  </h4>
+                  <div
+                    class="mt-1 block w-full rounded-lg border-gray-200 bg-gray-50 p-4 text-sm text-gray-800"
+                  >
+                    Tidak ada.
+                  </div>
+                </div>
+
+                <div>
+                  <h4 class="block text-sm font-medium text-gray-700">
+                    Lampiran
+                  </h4>
+                  <div class="mt-2 text-sm text-gray-500">
+                    <a
+                      href="#"
+                      class="inline-flex items-center text-blue-600 underline"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 mr-1.5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="2"
                       >
-                        Minggu Ke-
-                      </th>
-                      <th
-                        class="p-4 text-left text-sm font-semibold text-gray-600 tracking-wider"
-                      >
-                        Periode
-                      </th>
-                      <th
-                        class="p-4 text-left text-sm font-semibold text-gray-600 tracking-wider"
-                      >
-                        Tanggal Submit
-                      </th>
-                      <th
-                        class="p-4 text-center text-sm font-semibold text-gray-600 tracking-wider"
-                      >
-                        Status
-                      </th>
-                      <th
-                        class="p-4 text-center text-sm font-semibold text-gray-600 tracking-wider"
-                      >
-                        Aksi
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody class="divide-y divide-gray-200">
-                    <tr>
-                      <td class="p-4 text-sm text-gray-800">1</td>
-                      <td class="p-4 text-sm text-gray-800">
-                        25 Juni - 01 Juli 2025
-                      </td>
-                      <td class="p-4 text-sm text-gray-500">02 Juli 2025</td>
-                      <td class="p-4 text-center">
-                        <span
-                          class="px-3 py-1 text-xs font-medium text-green-800 bg-green-100 rounded-full"
-                        >
-                          Divalidasi
-                        </span>
-                      </td>
-                      <td class="p-4 text-center">
-                        <a
-                          href="./detail-logbook.html"
-                          class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 hover:text-gray-800 rounded-md transition-colors"
-                          title="Lihat Detail"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 mr-1.5"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                            <path
-                              fill-rule="evenodd"
-                              d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                          Detail
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="p-4 text-sm text-gray-800">2</td>
-                      <td class="p-4 text-sm text-gray-800">
-                        02 Juli - 08 Juli 2025
-                      </td>
-                      <td class="p-4 text-sm text-gray-500">09 Juli 2025</td>
-                      <td class="p-4 text-center">
-                        <span
-                          class="px-3 py-1 text-xs font-medium text-red-800 bg-red-100 rounded-full"
-                        >
-                          Revisi
-                        </span>
-                      </td>
-                      <td class="p-4 text-center space-x-2">
-                        <a
-                          href="./detail-logbook.html"
-                          class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-600 bg-gray-50 hover:bg-gray-200 hover:text-gray-800 rounded-md transition-colors"
-                          title="Lihat Detail"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 mr-1.5"
-                            viewBox="0 0 20 20"
-                            fill="currentColor"
-                          >
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
-                            <path
-                              fill-rule="evenodd"
-                              d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
-                              clip-rule="evenodd"
-                            />
-                          </svg>
-                          Detail
-                        </a>
-                        <a
-                          href="./edit-logbook.html"
-                          class="inline-flex items-center px-3 py-1.5 text-sm font-medium text-yellow-700 bg-yellow-50 hover:bg-yellow-100 hover:text-yellow-800 rounded-md transition-colors"
-                          title="Edit Logbook"
-                        >
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="h-4 w-4 mr-1.5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            stroke-width="2"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.5L15.232 5.232z"
-                            />
-                          </svg>
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                        />
+                      </svg>
+                      dokumentasi_minggu1.jpg
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
